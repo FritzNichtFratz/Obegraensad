@@ -36,11 +36,11 @@ Die Datei muss vor dem Kompilieren angepasst werden:
 #### MQTT:
 
 - *obegraensad/setDisplay*
- - Schaltet das Display ein/aus
+  - Schaltet das Display ein/aus
   - Payload: String ("ON"/"OFF")
 - *obegraensad/display-state*
- - Gibt den Zustand des Displays zurück
+  - Gibt den Zustand des Displays zurück
   - Payload: String ("ON"/"OFF")
 - *obegraensad/setBrightness*
- - Setzt die Helligkeit auf eine der Helligkeitsstufen
+  - Setzt die Helligkeit auf eine der Helligkeitsstufen
   - Payload: String ("0".."4")
