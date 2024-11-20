@@ -1,14 +1,46 @@
-![GitHub Logo](http://www.heise.de/make/icons/make_logo.png)
+#### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266 (WEMOS D1 mini)
+***
+basierend auf dem [**Sketch**](https://github.com/MakeMagazinDE/Obegraensad) zum Artikel aus [**Make-Ausgabe 6/23**](https://www.heise.de/select/make/2023/6)
+OTA und MQTT unter Verwendung der Library von **[plapointe6](https://github.com/plapointe6/EspMQTTClient)**
+***
+##### Bedienung:
 
-Maker Media GmbH
-*** 
+- Ein Drücken der Taste bewirkt beim Loslassen eine Erhöhung der Helligkeit in 5 Stufen.
+  - Nach Erreichen der höchsten Stufe fängt die Helligkeit wieder bei der niedrigsten Stufe an.
+- Ein Drücken der Taste länger als 2s schaltet das Display sofort aus.
+- Ein Drücken der Taste bei ausgeschaltetem Display schaltet das Display mit der zuletzt gewählten Helligkeit wieder ein.
+***
+#### Datei *Parameter.h*:
 
-# IKEA-Matrix gehackt
+Die Datei muss vor dem Kompilieren angepasst werden:
 
-### Die Wandleuchte OBEGRÄNSAD blinkt mit ihrer LED-Matrix munter vor sich her. Anpassen darf man die wenigen Muster jedoch nicht. Tauscht man die eingebaute CPU aber gegen einen ESP, lässt sich die LED-Matrix frei bespielen und sogar als Uhr nutzen.
+- _STASSID und _STAPSK auf eigene SSID des Netzwerks und das eigene Passwort setzen
+- _P_EN, _P_DI, _P_CLK, _P_CLA und _P_KEY an eigene Verdrahtung anpassen
+- _MY_NTP_SERVER eventuell ändern (z.B. _fritz.box_, wenn die Fritz!Box den NTP-Server bereitstellt)
+- MQTT_BROKER_IP auf die Adresse des eigenen MQTT-(Node-Red)Servers ändern
+- MQTTUSERNAME und MQTTPASSWORD können leer bleiben (oder zur Sicherheit eigene Werte eintragen)
+- MQTTCLIENT: unter diesem Namen erscheint der ESP im Netzwerk 
+- MQTTPORT: 1883 ist der Standardport
+#### OTA:
 
-Ergänzend zum Artikel aus der Make 6/23 findest du hier den benötigten Arduino-Sketch für den ESP-Mikrocontroller.
+- Kompilieren mit: _Sketch > Kompilierte Binärdatei exportieren_ starten
+- Adresse des ESP im Browser öffnen z.B. _http://192.168.1.91_
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA1.png)
+- Mit dem Button Firmware *Durchsuchen...* die exportierte Datei auswählen     
+(Die Datei befindet sich im _Projektordner_ (bei Arduino IDE V1.9x) bzw. im Ordner _Projektordner\build\Projektname_ bei V2.x))
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA2.png)
+- Mit dem Button *Update Firmware* die Übertragung starten
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA3.png)
+- Fertig!
+***
+#### MQTT:
 
-![Picture](https://github.com/MakeMagazinDE/Obegraensad/blob/main/obegraensad_github.png)
-
-Den Artikel mit der Bauanleitung gibt es in der **[Make-Ausgabe 6/23](https://www.heise.de/select/make/2023/6)** zu lesen.
+- *obegraensad/setDisplay*
+ - Schaltet das Display ein/aus
+  - Payload: String ("ON"/"OFF")
+- *obegraensad/display-state*
+ - Gibt den Zustand des Displays zurück
+  - Payload: String ("ON"/"OFF")
+- *obegraensad/setBrightness*
+ - Setzt die Helligkeit auf eine der Helligkeitsstufen
+  - Payload: String ("0".."4")
