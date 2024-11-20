@@ -25,12 +25,12 @@ Die Datei muss vor dem Kompilieren angepasst werden:
 
 - Kompilieren mit: _Sketch > Kompilierte Binärdatei exportieren_ starten
 - Adresse des ESP im Browser öffnen z.B. _http://192.168.1.91_
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA1.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA1.png)
 - Mit dem Button Firmware *Durchsuchen...* die exportierte Datei auswählen     
 (Die Datei befindet sich im _Projektordner_ (bei Arduino IDE V1.9x) bzw. im Ordner _Projektordner\build\Projektname_ bei V2.x))
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA2.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA2.png)
 - Mit dem Button *Update Firmware* die Übertragung starten
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA3.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA3.png)
 - Fertig!
 ***
 #### MQTT:
