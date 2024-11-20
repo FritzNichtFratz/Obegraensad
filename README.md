@@ -1,6 +1,6 @@
 #### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266 (WEMOS D1 mini)
 ***
-basierend auf dem [**Sketch**](https://github.com/MakeMagazinDE/Obegraensad) zum Artikel aus [**Make-Ausgabe 6/23**](https://www.heise.de/select/make/2023/6)
+basierend auf dem [**Sketch**](https://github.com/MakeMagazinDE/Obegraensad) zum Artikel aus [**Make-Ausgabe 6/23**](https://www.heise.de/select/make/2023/6)   
 OTA und MQTT unter Verwendung der Library von **[plapointe6](https://github.com/plapointe6/EspMQTTClient)**
 ***
 ##### Bedienung:
