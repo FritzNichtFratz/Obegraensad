@@ -1,7 +1,7 @@
-#### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266 (WEMOS D1 mini)
+#### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266/ESP32
 ***
 basierend auf dem [**Sketch**](https://github.com/MakeMagazinDE/Obegraensad) zum Artikel aus [**Make-Ausgabe 6/23**](https://www.heise.de/select/make/2023/6)   
-OTA und MQTT unter Verwendung der Library von **[plapointe6](https://github.com/plapointe6/EspMQTTClient)**
+OTA und MQTT unter Verwendung der Library von **[plapointe6](https://github.com/plapointe6/EspMQTTClient)** (Für ESP32 ist eine Anpassung nach [Arduino Forum](https://forum.arduino.cc/t/broken-dependencies/1266624/8) nötig)
 ***
 ##### Bedienung:
 
@@ -21,26 +21,27 @@ Die Datei muss vor dem Kompilieren angepasst werden:
 - MQTTUSERNAME und MQTTPASSWORD können leer bleiben (oder zur Sicherheit eigene Werte eintragen)
 - MQTTCLIENT: unter diesem Namen erscheint der ESP im Netzwerk 
 - MQTTPORT: 1883 ist der Standardport
-#### OTA:
+***
+#### Webupdater:
 
 - Kompilieren mit: _Sketch > Kompilierte Binärdatei exportieren_ starten
 - Adresse des ESP im Browser öffnen z.B. _http://192.168.1.91_
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA1.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA1.png)
 - Mit dem Button Firmware *Durchsuchen...* die exportierte Datei auswählen     
 (Die Datei befindet sich im _Projektordner_ (bei Arduino IDE V1.9x) bzw. im Ordner _Projektordner\build\Projektname_ bei V2.x))
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA2.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA2.png)
 - Mit dem Button *Update Firmware* die Übertragung starten
-![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/OTA3.png)
+![Picture](https://github.com/FritzNichtFratz/Obegraensad/blob/Pics/OTA3.png)
 - Fertig!
 ***
 #### MQTT:
 
 - *obegraensad/setDisplay*
-  - Schaltet das Display ein/aus
+ - Schaltet das Display ein/aus
   - Payload: String ("ON"/"OFF")
 - *obegraensad/display-state*
-  - Gibt den Zustand des Displays zurück
+ - Gibt den Zustand des Displays zurück
   - Payload: String ("ON"/"OFF")
 - *obegraensad/setBrightness*
-  - Setzt die Helligkeit auf eine der Helligkeitsstufen
+ - Setzt die Helligkeit auf eine der Helligkeitsstufen
   - Payload: String ("0".."4")
