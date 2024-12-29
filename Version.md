@@ -47,3 +47,29 @@
   - ESP32 ruft **configTzTime()** statt **configTime()** auf (Parameterübergabe)
   - **OE_** durch **dispOff** ersetzt
 - Allgemeine Anpassungen
+
+**V1.15** (ESP32 nur kompiliert)
+- FAT NUMBER "1" modifiziert
+- FAT NUMBER "3" modifiziert
+- Font "V" und "v" modifiziert
+- Font auf 7x7 erweitert
+  - Bezeichnungen angepasst
+- Helligkeitsstufen verringert und angepasst
+- brightness von festen Helligkeitsstufen entkoppelt
+- MQTT: Beispiel angepasst
+- p_printChar vereinfacht und in printChar umbenannt
+- printChar(QUANDRANT_X) eingefügt
+- Anzeige des Arbeitsschritts bei Neustart
+
+**V1.16** (ESP32 nur kompiliert)
+- Font in Font_System7x7.h ausgelagert
+- P_KEY in P_BTN umbenannt
+- Blinken eingefügt
+  - Helligkeiten für Blinken eingefügt
+- Debug eingefügt
+  - Helligkeit über MQTT stufenlos regelbar
+
+**V1.20** (ESP32 nur kompiliert)
+- printClockChar(QUANDRANT_X) eingefügt
+- Diverse Überarbeitungen
+- Routinen für Zusatzboard mit Ikea-Chip eingefügt
