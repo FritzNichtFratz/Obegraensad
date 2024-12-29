@@ -1,0 +1,938 @@
+[
+    {
+        "id": "1b8141a91d427f5a",
+        "type": "tab",
+        "label": "Obegraensad",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "795a565f036d5654",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "83845a2a805b2c78"
+            ]
+        ]
+    },
+    {
+        "id": "346c17873b5e30c5",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setDisplay",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5c4175935f4b7649",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "83845a2a805b2c78"
+            ]
+        ]
+    },
+    {
+        "id": "9f6f0990e7a82f4f",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/display-state",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "936cd8c83baa6f23",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "askDisplay",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "9f6f0990e7a82f4f"
+            ]
+        ]
+    },
+    {
+        "id": "14bda1f6e17d0209",
+        "type": "debug",
+        "z": "1b8141a91d427f5a",
+        "name": "Display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "02a485228bb13883",
+        "type": "mqtt in",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/display",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "a98b19cf.1d42b8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "14bda1f6e17d0209"
+            ]
+        ]
+    },
+    {
+        "id": "97ddd76f52039bc5",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setBrightnessStep",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a1c9bb3b88e2ae31",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Mittag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 11 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "c83bab5c49bc8785"
+            ]
+        ]
+    },
+    {
+        "id": "3269696e3b181c4e",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Nacht",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 21 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "c83bab5c49bc8785"
+            ]
+        ]
+    },
+    {
+        "id": "99c6d5d85d81b5ad",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Morgen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 07 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "c83bab5c49bc8785"
+            ]
+        ]
+    },
+    {
+        "id": "9c0cb30cecb757ac",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Nachmittag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 16 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "c83bab5c49bc8785"
+            ]
+        ]
+    },
+    {
+        "id": "83845a2a805b2c78",
+        "type": "ui_switch",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Display",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "346c17873b5e30c5"
+            ]
+        ]
+    },
+    {
+        "id": "9a35c11062615573",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "31e861469c47b997"
+            ]
+        ]
+    },
+    {
+        "id": "94392ec62e08585e",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setBlinking",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f0247e602549d98c",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "31e861469c47b997"
+            ]
+        ]
+    },
+    {
+        "id": "31e861469c47b997",
+        "type": "ui_switch",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Blinking",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "94392ec62e08585e"
+            ]
+        ]
+    },
+    {
+        "id": "dff163d79a5a2c94",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "5f00951ecedde272"
+            ]
+        ]
+    },
+    {
+        "id": "fcc1e7908bfbdf22",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setDebug",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 570,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "435e7502a7fd7dea",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "5f00951ecedde272"
+            ]
+        ]
+    },
+    {
+        "id": "5f00951ecedde272",
+        "type": "ui_switch",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Debug",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 350,
+        "y": 640,
+        "wires": [
+            [
+                "fcc1e7908bfbdf22"
+            ]
+        ]
+    },
+    {
+        "id": "d9a330cfc57fb311",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "e09d02539c9504b8"
+            ]
+        ]
+    },
+    {
+        "id": "b0e583f744e2e32b",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setIkea",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 560,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "0358ebd9691a1557",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 170,
+        "y": 760,
+        "wires": [
+            [
+                "e09d02539c9504b8"
+            ]
+        ]
+    },
+    {
+        "id": "e09d02539c9504b8",
+        "type": "ui_switch",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Ikea",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 350,
+        "y": 740,
+        "wires": [
+            [
+                "b0e583f744e2e32b"
+            ]
+        ]
+    },
+    {
+        "id": "47857b555cdeb2cb",
+        "type": "ui_button",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "group": "e2900bb6de50d984",
+        "order": 5,
+        "width": "8",
+        "height": "1",
+        "passthru": false,
+        "label": "Taster",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 820,
+        "wires": [
+            [
+                "96c9362e833b9b77"
+            ]
+        ]
+    },
+    {
+        "id": "96c9362e833b9b77",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/Taster",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 560,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "f62fad7ce951e665",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Taster",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 820,
+        "wires": [
+            [
+                "47857b555cdeb2cb"
+            ]
+        ]
+    },
+    {
+        "id": "66f37fef418064f9",
+        "type": "ui_slider",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Helligkeit (254..0)",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 3,
+        "width": "8",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "254",
+        "max": "0",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "7c8dfee6130b90f8"
+            ]
+        ]
+    },
+    {
+        "id": "7c8dfee6130b90f8",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/setBrightness",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 620,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1368775f1eb16e42",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "Höchste",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "c83bab5c49bc8785"
+            ]
+        ]
+    },
+    {
+        "id": "c83bab5c49bc8785",
+        "type": "ui_slider",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "label": "Helligkeitsstufe (0..3)",
+        "tooltip": "",
+        "group": "e2900bb6de50d984",
+        "order": 3,
+        "width": "8",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "0",
+        "max": "3",
+        "step": 1,
+        "className": "",
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "97ddd76f52039bc5"
+            ]
+        ]
+    },
+    {
+        "id": "62cdfd35680b3c93",
+        "type": "mqtt in",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/version",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "a98b19cf.1d42b8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 340,
+        "y": 960,
+        "wires": [
+            [
+                "dbb44e8427825707"
+            ]
+        ]
+    },
+    {
+        "id": "dbb44e8427825707",
+        "type": "debug",
+        "z": "1b8141a91d427f5a",
+        "name": "Version",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "5421f9c43f5f55d3",
+        "type": "mqtt out",
+        "z": "1b8141a91d427f5a",
+        "name": "",
+        "topic": "obegraensad/askVersion",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a98b19cf.1d42b8",
+        "x": 570,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "3da436c1c774c804",
+        "type": "inject",
+        "z": "1b8141a91d427f5a",
+        "name": "askVersion",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 900,
+        "wires": [
+            [
+                "5421f9c43f5f55d3"
+            ]
+        ]
+    },
+    {
+        "id": "a98b19cf.1d42b8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.31",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "e2900bb6de50d984",
+        "type": "ui_group",
+        "name": "Obegraensad",
+        "tab": "e1e2d723faa9d1f6",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e1e2d723faa9d1f6",
+        "type": "ui_tab",
+        "name": "Obegraensad",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
