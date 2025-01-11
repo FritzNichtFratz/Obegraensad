@@ -2,7 +2,7 @@
 
 #### (mit Zusatzboard Umschaltung auf Originalchip möglich)
 
-<img title="" src="https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/Zeitanzeige.jpg" alt="Picture" width="249">
+<img title="" src="https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/Zeitanzeige.jpg" alt="Picture" width="249">     <img title="" src="https://github.com/FritzNichtFratz/Obegraensad/blob/main/Pics/Zeitanzeige_wideFont.jpg" alt="Picture" width="249">
 
 ***
 
