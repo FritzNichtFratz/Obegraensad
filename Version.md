@@ -48,7 +48,7 @@
   - **OE_** durch **dispOff** ersetzt
 - Allgemeine Anpassungen
 
-**V1.15** (ESP32 nur kompiliert)
+**V1.15**
 - FAT NUMBER "1" modifiziert
 - FAT NUMBER "3" modifiziert
 - Font "V" und "v" modifiziert
@@ -61,7 +61,7 @@
 - printChar(QUANDRANT_X) eingefügt
 - Anzeige des Arbeitsschritts bei Neustart
 
-**V1.16** (ESP32 nur kompiliert)
+**V1.16**
 - Font in Font_System7x7.h ausgelagert
 - P_KEY in P_BTN umbenannt
 - Blinken eingefügt
@@ -69,7 +69,7 @@
 - Debug eingefügt
   - Helligkeit über MQTT stufenlos regelbar
 
-**V1.20** (ESP32 nur kompiliert)
+**V1.20** (ESP32 und ESP32-C3 ohne Zusatzplatine)
 - printClockChar(QUANDRANT_X) eingefügt
 - Diverse Überarbeitungen
 - Routinen für Zusatzboard mit Ikea-Chip eingefügt
