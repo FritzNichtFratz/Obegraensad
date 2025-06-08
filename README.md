@@ -1,4 +1,4 @@
-#### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266/ESP32
+#### Zeitanzeige auf IKEA OBEGRÄNSAD mit ESP8266/ESP32/ESP32-C3 SuperMini
 
 #### (mit Zusatzboard Umschaltung auf Originalchip möglich)
 
